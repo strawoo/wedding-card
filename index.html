@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=h8mce8c84o&submodules=geocoder"></script>
+    
+    <style>
+        @font-face {
+            font-family: 'GmarketSansLight';
+            font-weight: 300;
+            font-style: normal;
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.eot');
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.eot?#iefix') format('embedded-opentype'),
+            url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.woff2') format('woff2'),
+            url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.woff') format('woff'),
+            url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.ttf') format("truetype");
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            font-weight: 500;
+            font-style: normal;
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansMedium.eot');
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansMedium.eot?#iefix') format('embedded-opentype'),
+            url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansMedium.woff2') format('woff2'),
+            url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansMedium.woff') format('woff'),
+            url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansMedium.ttf') format("truetype");
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'GmarketSansBold';
+            font-weight: 700;
+            font-style: normal;
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansBold.eot');
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansBold.eot?#iefix') format('embedded-opentype'),
+            url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansBold.woff2') format('woff2'),
+            url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansBold.woff') format('woff'),
+            url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansBold.ttf') format("truetype");
+            font-display: swap;
+        }
+
+        .color-key {
+            color: #2FCE42;
+        }
+
+        .ellipse {
+            width: 110px;
+            height: 35px;
+            border-radius: 50%;
+            border-color: #2FCE42;
+            border-width: 2px;
+        }
+
+        .swiper {
+            width: 420px;
+            height: 300px;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+<div class="flex justify-center text-center bg-gray-100">
+    <div class="" style="width: 420px; height: 3500px; background-color: #F8F7F1">
+        <div class="relative">
+            <div class="absolute top-10 left-0 w-full flex justify-center">
+                <div class="ellipse flex justify-center">
+                    <span class="pt-1 color-key"
+                          style="font-family: GmarketSansMedium,serif; font-size: 15px;">WEDDING!</span>
+                </div>
+            
+            </div>
+            <div class="absolute text-left leading-none italic top-28 left-8 color-key"
+                 style="font-family: GmarketSansBold,serif; font-size: 62px">
+                <p>minhee</p>
+                <p>+</p>
+                <p>woohyun</p>
+            </div>
+            <img src="photo1.jpg">
+        </div>
+        
+        <div class="pt-8" style="height: 300px">
+            <p class="italic mb-3 color-key" style="font-family: GmarketSansMedium,serif;">결혼합니다.</p>
+            <span class="inline-block italic mb-3" style="font-family: GmarketSansLight">
+                서로의 평생을 약속하는 날<br>
+                좋아하는 분들과 함꼐하고 싶어<br>
+                설레는 마음으로 자리를 마련했습니다<br>
+            </span>
+            <p class="italic mb-3 color-key" style="font-family: GmarketSansMedium,serif;">우현 민희에게 사랑을 전해주세요!</p>
+            <span class="inline-block italic mb-3" style="font-family: GmarketSansLight">
+                물론 사랑이 듬뿍 담긴<br>
+                전화와 문자 연락으로도 충분히 감사합니다<br>
+                참석에 부담 갖지 마시고 축하해주세요<br>
+            </span>
+        </div>
+        
+        <div class="flex mb-10">
+            <div class="overflow-hidden bg-red-200" style="width: 260px; height: 260px">
+                <img src="baby-m.png"/>
+            </div>
+            <div class="relative" style="width: 160px">
+                <div class="absolute bottom-0 left-4 text-left">
+                    <p class="italic underline underline-offset-2 mb-2" style="font-family: GmarketSansMedium">장소</p>
+                    <p class="italic" style="font-family: GmarketSansLight">보넬리가든</p>
+                    <p style="font-family: GmarketSansLight; font-size: 10px">*서울시 서초구 샘마루길 11</p>
+                    <p style="font-family: GmarketSansLight; font-size: 10px">*야외에서 진행되는 예식입니다</p>
+                </div>
+            </div>=
+        </div>
+        <div class="flex mb-8">
+            <div class="relative" style="width: 160px">
+                <div class="absolute bottom-0 right-4 text-right">
+                    <p class="italic underline underline-offset-2 mb-2" style="font-family: GmarketSansMedium">일시</p>
+                    <p class="italic" style="font-family: GmarketSansLight">2022년 5월 28일</p>
+                    <p class="italic" style="font-family: GmarketSansLight">토요일 오후 12시</p>
+                </div>
+            </div>
+            <div class="overflow-hidden bg-red-200" style="width: 260px; height: 260px">
+                <img src="baby-w.png"/>
+            </div>
+        </div>
+        
+        <div class="from-green-200 to-green-500 pb-2"
+             style="background: linear-gradient(180deg, rgba(248,247,241,1) 16%, rgba(130,214,127,1) 62%, rgba(34,196,55,1) 100%);">
+            <p style="font-size: 30px">😷</p>
+            <p class="italic mb-5" style="font-family: GmarketSansLight">
+                COVID-19로 인해 모두가 어려운 시기임에도<br>
+                예정대로 결혼식을 진행하게 되었습니다.
+            </p>
+            <p class="italic mb-5" style="font-family: GmarketSansLight">
+                정부의 방역지침을 최대한 준수하여<br>
+                예식이 진행될 예정이지만,
+            </p>
+            <p class="italic mb-5" style="font-family: GmarketSansLight">
+                당일 참석을 우려하시는 하객분들께서는<br>
+                무리하여 참석하지 않으셔도 괜찮습니다.<br>
+                멀리서도 저희의 앞길을 축하해주시는<br>
+                마음만 감사히 받겠습니다.<br>
+            </p>
+            <p class="italic mb-5" style="font-family: GmarketSansLight">
+                부디 저희의 결혼 소식이<br>
+                여러분의 마음 속 불편한 짐이 아닌<br>
+                즐거운 소식으로 느껴지길<br>
+                진심으로 바랍니다.<br>
+            </p>
+        </div>
+    
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="photo2.jpg">
+                </div>
+                <div class="swiper-slide">
+                    <img src="photo3.jpg">
+                </div>
+                <div class="swiper-slide">Slide 3</div>
+                <div class="swiper-slide">Slide 4</div>
+                <div class="swiper-slide">Slide 5</div>
+                <div class="swiper-slide">Slide 6</div>
+                <div class="swiper-slide">Slide 7</div>
+                <div class="swiper-slide">Slide 8</div>
+                <div class="swiper-slide">Slide 9</div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    
+        <div class="pt-8" style="height: 380px">
+            <p class="italic mb-3 color-key" style="font-family: GmarketSansMedium,serif;">참석하시는 분들께 알립니다.</p>
+            <span class="inline-block italic mb-3" style="font-family: GmarketSansLight">
+                ㅁ<br>
+                예식은 야외에서 편한 분위기 속에 진행됩니다<br>
+                입구에 비치된 일회용 카메라로<br>
+                저희와 여러분의 사진을 찍어주세요<br>
+                ㅁ<br>
+                11시 30분부터 웰컴 드링크가 제공되고,<br>
+                13시부터 15시까지 식사가 운영됩니다<br>
+                시원한 생맥주와 논알콜 음료가 준비되어 있으니<br>
+                음식과 음료는 마음껏 즐겨주세요<br>
+                ㅁ<br>
+                참석하시는 분들을 위해<br>
+                양가 부모님께서 작은 선물을 준비해주셨습니다<br>
+                돌아가실 때 꼭 받아가세요!
+            </span>
+        </div>
+    
+        <div class="p-8 text-left" style="height: 600px">
+            <p class="italic underline underline-offset-2 mb-4" style="font-family: GmarketSansMedium">오시는 길</p>
+    
+            <div id="map" class="mb-4" style="width: 100%; height: 300px"></div>
+    
+            <p class="italic mb-1" style="font-family: GmarketSansMedium; font-size: 13px">🚌셔틀버스</p>
+            <p class="italic mb-4" style="font-family: GmarketSansLight;">
+                양재시민의숲역 4번출구에서 15분 간격
+            </p>
+            
+            <p class="italic mb-1" style="font-family: GmarketSansMedium; font-size: 13px">🚈대중교통</p>
+            <p class="italic mb-1" style="font-family: GmarketSansLight;">
+                양재시민의숲역 4번출구 <br><span style="font-size: 10px">혹은</span> 양재역 9번출구<span style="font-size: 10px">에서 버스 이용</span>
+            </p>
+            <p class="italic mb-4 " style="font-family: GmarketSansLight;">
+                <span class="underline underline-offset-2">440</span>
+                <span class="underline underline-offset-2">452</span>
+                <span class="underline underline-offset-2">741</span>
+                <span class="underline underline-offset-2">9404</span>
+                <span class="underline underline-offset-2">9408</span>
+                <span class="underline underline-offset-2">9409</span>
+            </p>
+        </div>
+    
+        <div class="p-8"
+             style="height: 200px;">
+            <p class="italic underline underline-offset-2 mb-4" style="font-family: GmarketSansMedium">마음 전하실 곳</p>
+            <div class="text-left" style="font-family: GmarketSansLight">
+                <p>박준한: 국민 1231231233</p>
+                <p>김유순: 국민 1231232131</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var swiper = new Swiper('.mySwiper', {
+        spaceBetween: 0,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+
+    // 37.45577395827255, 127.0711253661524
+    var mapOptions = {
+        // center: new naver.maps.LatLng(37.3595704, 127.105399),
+        center: new naver.maps.LatLng(37.4557739582, 127.071125),
+        zoom: 15,
+        zoomControl: true,
+        zoomControlOptions: {
+            style: naver.maps.ZoomControlStyle.SMALL,
+            position: naver.maps.Position.TOP_RIGHT
+        }
+    };
+
+    var map = new naver.maps.Map('map', mapOptions);
+    var marker = new naver.maps.Marker({
+        position: new naver.maps.LatLng(37.4557739582, 127.071125),
+        map: map
+    });
+
+    var contentString = [
+        '<div class="iw_inner">',
+        '   <p class="text-sm" style="font-family: GmarketSansLight">보넬리 가든<br/>',
+        '   </p>',
+        '</div>'
+    ].join('');
+
+    var infowindow = new naver.maps.InfoWindow({
+        content: contentString,
+        maxWidth: 150,
+        backgroundColor: "#fff",
+        borderWidth: 1,
+        anchorSize: new naver.maps.Size(30, 30),
+        anchorSkew: true,
+        anchorColor: "#eee",
+        pixelOffset: new naver.maps.Point(20, -20)
+    });
+
+    naver.maps.Event.addListener(marker, "click", function(e) {
+        if (infowindow.getMap()) {
+            infowindow.close();
+        } else {
+            infowindow.open(map, marker);
+        }
+    });
+</script>
+</body>
+</html>
