@@ -2,8 +2,8 @@
 <html lang="">
 <head>
     <meta charset="UTF-8">
-    <meta content="yes" name="apple-mobile-web-app-capable" />
-    <meta content="minimum-scale=1.0, width=device-width, maximum-scale=1, user-scalable=no" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="minimum-scale=1.0, width=device-width, maximum-scale=1, user-scalable=no" name="viewport"/>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link
@@ -12,7 +12,10 @@
     />
     
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=h8mce8c84o&submodules=geocoder"></script>
+    <script type="text/javascript"
+            src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=h8mce8c84o&submodules=geocoder"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
     
     <style>
         @font-face {
@@ -94,11 +97,11 @@
             height: 100%;
             object-fit: cover;
         }
-        
+
         html {
             overflow-x: hidden;
         }
-        
+
         body {
             overflow-x: hidden;
             width: 100%;
@@ -106,7 +109,8 @@
     </style>
 </head>
 <body>
-<div class="flex justify-center text-center bg-gray-100">
+<div x-data="{ open: 'test1', type: new URLSearchParams(location.search).get('type') }"
+     class="flex justify-center text-center bg-gray-100">
     <div class="" style="max-width: 420px; height: 3700px; background-color: #F8F7F1">
         <div class="relative">
             <div class="absolute top-10 left-0 w-full flex justify-center">
@@ -190,7 +194,7 @@
                 진심으로 바랍니다.<br>
             </p>
         </div>
-    
+        
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
@@ -209,8 +213,8 @@
             </div>
             <div class="swiper-pagination"></div>
         </div>
-    
-        <div class="pt-8" style="height: 380px">
+        
+        <div class="pt-8" style="height: 440px">
             <p class="mb-3 color-key" style="font-family: GmarketSansMedium,serif;">참석하시는 분들께 알립니다.</p>
             <span class="inline-block mb-3" style="font-family: GmarketSansLight">
                 📸<br>
@@ -235,93 +239,150 @@
                 </span>
             </span>
         </div>
-    
+        
         <div class="p-8 text-left" style="height: 600px">
-            <p class="italic underline underline-offset-2 mb-4" style="font-family: GmarketSansMedium">오시는 길</p>
+            <div class="italic underline underline-offset-2" style="font-family: GmarketSansMedium">오시는 길</div>
+            <a href="http://naver.me/GbErrddy" target="_blank" style="font-family: GmarketSansLight">서울시 서초구 샘마루길 11 보넬리가든</a>
     
-            <div id="map" class="mb-4" style="width: 100%; height: 300px"></div>
+            <div id="map" class="my-4" style="width: 100%; height: 300px"></div>
     
-            <p class="italic mb-1" style="font-family: GmarketSansMedium; font-size: 13px">🚌셔틀버스</p>
-            <p class="italic mb-4" style="font-family: GmarketSansLight;">
-                양재시민의숲역 4번출구에서 15분 간격
-            </p>
+            <div class="italic mb-4" style="font-family: GmarketSansLight;">
+                <div class="flex justify-evenly mt-2">
+                    <a href="kakaomap://search?q=보넬리가든" style="width: 40px">
+                        <img src="kakaomap.png">
+                    </a>
+                    <a href="tmap://search?name=보넬리가든" style="width: 40px">
+                        <img src="tmap.png">
+                    </a>
+                    <a href="nmap://search?query=보넬리가든" style="width: 40px">
+                        <img src="navermap.png">
+                    </a>
+                    <a href="https://t.kakao.com/launch?type=taxi&amp;dest_lat=37.4557739582&amp;dest_lng=127.071125&amp;ref=localweb" style="width: 40px">
+                        <img src="kakaot.png">
+                    </a>
+                </div>
+            </div>
             
-            <p class="italic mb-1" style="font-family: GmarketSansMedium; font-size: 13px">🚈대중교통</p>
-            <p class="italic mb-1" style="font-family: GmarketSansLight;">
-                양재시민의숲역 4번출구 <br><span style="font-size: 10px">혹은</span> 양재역 9번출구<span style="font-size: 10px">에서 버스 이용</span>
-            </p>
-            <p class="italic mb-4 " style="font-family: GmarketSansLight;">
+            <div class="italic mb-1" style="font-family: GmarketSansMedium; font-size: 13px">🚌셔틀버스</div>
+            <div class="italic mb-4" style="font-family: GmarketSansLight;">
+                양재시민의숲역 4번출구에서 15분 간격
+            </div>
+            
+            <div class="italic mb-1" style="font-family: GmarketSansMedium; font-size: 13px">🚈대중교통</div>
+            <div class="italic mb-1" style="font-family: GmarketSansLight;">
+                양재시민의숲역 4번출구 <br><span style="font-size: 10px">혹은</span> 양재역 9번출구<span
+                style="font-size: 10px">에서 버스 이용</span>
+            </div>
+            <div class="italic mb-4 " style="font-family: GmarketSansLight;">
                 <span class="underline underline-offset-2">440</span>
                 <span class="underline underline-offset-2">452</span>
                 <span class="underline underline-offset-2">741</span>
                 <span class="underline underline-offset-2">9404</span>
                 <span class="underline underline-offset-2">9408</span>
                 <span class="underline underline-offset-2">9409</span>
-            </p>
+            </div>
         </div>
-    
-        <div class="p-8"
+        
+        <div x-show="type == 'c' || type =='b'" class="p-8"
              style="height: 200px;">
-            <p class="italic underline underline-offset-2 mb-4" style="font-family: GmarketSansMedium">마음 전하실 곳</p>
+            <p class="italic underline underline-offset-2 mb-4 text-left" style="font-family: GmarketSansMedium">마음 전하실
+                곳</p>
             <div class="text-left" style="font-family: GmarketSansLight">
-                <p>박준한: 국민 1231231233</p>
-                <p>김유순: 국민 1231232131</p>
+                <div class="flex items-center" x-show="type == 'b'">
+                    <span style="font-family: GmarketSansMedium;">남강진</span>
+                    &nbsp농협&nbsp<span id="account">22111452025427</span>
+                    
+                    <button class="btn rounded-md text-white font-bold ml-2 px-2"
+                            data-clipboard-target="#account"
+                            style="background-color: #2FCE42;"
+                    >
+                        복사하기
+                    </button>
+                </div>
+                <div x-show="type == 'c'">
+                    <div class="mb-1">
+                        <span style="font-family: GmarketSansMedium;">박준한</span>
+                        &nbsp농협&nbsp<span id="account1">1234</span>
+                        
+                        <button class="btn rounded-md text-white font-bold ml-2 px-2"
+                                data-clipboard-target="#account1"
+                                style="background-color: #2FCE42;"
+                        >
+                            복사하기
+                        </button>
+                    </div>
+                    <div>
+                        <span style="font-family: GmarketSansMedium;">김유순</span>
+                        &nbsp농협&nbsp<span id="account2">5678</span>
+                        
+                        <button class="btn rounded-md text-white font-bold ml-2 px-2"
+                                data-clipboard-target="#account2"
+                                style="background-color: #2FCE42;"
+                        >
+                            복사하기
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    var swiper = new Swiper('.mySwiper', {
-        spaceBetween: 0,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-    });
-
-    // 37.45577395827255, 127.0711253661524
-    var mapOptions = {
-        // center: new naver.maps.LatLng(37.3595704, 127.105399),
-        center: new naver.maps.LatLng(37.4557739582, 127.071125),
-        zoom: 15,
-        zoomControl: true,
-        zoomControlOptions: {
-            style: naver.maps.ZoomControlStyle.SMALL,
-            position: naver.maps.Position.TOP_RIGHT
-        }
-    };
-
-    var map = new naver.maps.Map('map', mapOptions);
-    var marker = new naver.maps.Marker({
-        position: new naver.maps.LatLng(37.4557739582, 127.071125),
-        map: map
-    });
-
-    var contentString = [
-        '<div class="iw_inner">',
-        '   <p class="text-sm" style="font-family: GmarketSansLight">보넬리 가든<br/>',
-        '   </p>',
-        '</div>'
-    ].join('');
-
-    var infowindow = new naver.maps.InfoWindow({
-        content: contentString,
-        maxWidth: 150,
-        backgroundColor: "#fff",
-        borderWidth: 1,
-        anchorSize: new naver.maps.Size(30, 30),
-        anchorSkew: true,
-        anchorColor: "#eee",
-        pixelOffset: new naver.maps.Point(20, -20)
-    });
-
-    naver.maps.Event.addListener(marker, "click", function(e) {
-        if (infowindow.getMap()) {
-            infowindow.close();
-        } else {
-            infowindow.open(map, marker);
-        }
+    document.addEventListener('DOMContentLoaded', function () {
+        var swiper = new Swiper('.mySwiper', {
+            spaceBetween: 0,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+        
+        // 37.45577395827255, 127.0711253661524
+        var mapOptions = {
+            // center: new naver.maps.LatLng(37.3595704, 127.105399),
+            center: new naver.maps.LatLng(37.4557739582, 127.071125),
+            zoom: 15,
+            zoomControl: true,
+            zoomControlOptions: {
+                style: naver.maps.ZoomControlStyle.SMALL,
+                position: naver.maps.Position.TOP_RIGHT,
+            },
+        };
+        
+        var map = new naver.maps.Map('map', mapOptions);
+        var marker = new naver.maps.Marker({
+            position: new naver.maps.LatLng(37.4557739582, 127.071125),
+            map: map,
+        });
+        
+        var contentString = [
+            '<div class="iw_inner">',
+            '   <p class="text-sm" style="font-family: GmarketSansLight">보넬리 가든<br/>',
+            '   </p>',
+            '</div>',
+        ].join('');
+        
+        var infowindow = new naver.maps.InfoWindow({
+            content: contentString,
+            maxWidth: 150,
+            backgroundColor: '#fff',
+            borderWidth: 1,
+            anchorSize: new naver.maps.Size(30, 30),
+            anchorSkew: true,
+            anchorColor: '#eee',
+            pixelOffset: new naver.maps.Point(20, -20),
+        });
+        
+        naver.maps.Event.addListener(marker, 'click', function (e) {
+            if (infowindow.getMap()) {
+                infowindow.close();
+            } else {
+                infowindow.open(map, marker);
+            }
+        });
+        
+        new ClipboardJS('.btn');
     });
 </script>
 </body>
