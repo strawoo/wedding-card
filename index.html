@@ -105,6 +105,11 @@
             object-fit: cover;
         }
 
+        .swiper-pagination-bullet-active {
+            background-color: #2FCE42;
+        }
+
+
         html {
             overflow-x: hidden;
         }
@@ -342,6 +347,8 @@
     document.addEventListener('DOMContentLoaded', function () {
         var swiper = new Swiper('.mySwiper', {
             spaceBetween: 0,
+            grabCursor: true,
+            loop: true,
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
