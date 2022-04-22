@@ -5,6 +5,13 @@
     <meta content="yes" name="apple-mobile-web-app-capable"/>
     <meta content="minimum-scale=1.0, width=device-width, maximum-scale=1, user-scalable=no" name="viewport"/>
     
+    <meta property="og:title" content="minhee + woohyun" />
+    <meta property="og:url" content="https://strawoo.github.io/wedding-card/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://strawoo.github.io/wedding-card/slide4.jpg" />
+    <meta property="og:description" content="민희 + 우현 결혼합니다" />
+    
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link
         rel="stylesheet"
@@ -111,7 +118,7 @@
 <body>
 <div x-data="{ open: 'test1', type: new URLSearchParams(location.search).get('type') }"
      class="flex justify-center text-center bg-gray-100">
-    <div class="" style="max-width: 420px; height: 3700px; background-color: #F8F7F1">
+    <div style="max-width: 420px; background-color: #F8F7F1">
         <div class="relative">
             <div class="absolute top-10 left-0 w-full flex justify-center">
                 <div class="ellipse flex justify-center" style="border-width: 0.12rem">
@@ -120,11 +127,9 @@
                 </div>
             
             </div>
-            <div class="absolute text-left leading-none italic top-28 left-8 color-key"
-                 style="font-family: GmarketSansBold,serif; font-size: 62px">
-                <p>minhee</p>
-                <p>+</p>
-                <p>woohyun</p>
+            <div class="absolute text-left italic top-28 left-8 color-key"
+                 style="font-family: GmarketSansBold,serif; font-size: 62px; line-height: 0.9">
+                <p>minhee<br>+<br>woohyun</p>
             </div>
             <img src="photo1.jpg">
         </div>
@@ -144,8 +149,12 @@
             </span>
         </div>
         
+        <div>
+            <img src="photo4.png">
+        </div>
+        
         <div class="flex mb-10">
-            <div class="overflow-hidden bg-red-200" style="width: 260px; height: 260px">
+            <div class="overflow-hidden bg-red-200" style="width: 230px; height: 230px">
                 <img src="baby-m.png"/>
             </div>
             <div class="relative" style="width: 160px">
@@ -165,7 +174,7 @@
                     <p class="italic" style="font-family: GmarketSansLight">토요일 오후 12시</p>
                 </div>
             </div>
-            <div class="overflow-hidden bg-red-200" style="width: 260px; height: 260px">
+            <div class="overflow-hidden bg-red-200" style="width: 230px; height: 230px">
                 <img src="baby-w.png"/>
             </div>
         </div>
@@ -285,8 +294,7 @@
             </div>
         </div>
         
-        <div x-show="type == 'c' || type =='b'" class="p-8"
-             style="height: 200px;">
+        <div x-show="type == 'c' || type =='b'" class="p-8">
             <p class="italic underline underline-offset-2 mb-4 text-left" style="font-family: GmarketSansMedium">마음 전하실
                 곳</p>
             <div class="text-left" style="font-family: GmarketSansLight">
