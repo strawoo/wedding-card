@@ -350,9 +350,8 @@
 </div>
 
 <script>
+    $('meta[property=og\\:description]').attr('content', 'test');
     document.addEventListener('DOMContentLoaded', function () {
-        $('meta[property=og\\:description]').attr('content', 'test');
-        console.log(123);
     
         var swiper = new Swiper('.mySwiper', {
             spaceBetween: 0,
