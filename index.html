@@ -21,9 +21,7 @@
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script type="text/javascript"
             src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=h8mce8c84o&submodules=geocoder"></script>
-    <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
     <style>
         @font-face {
@@ -121,8 +119,7 @@
         }
     </style>
 </head>
-<div x-data="{ open: 'test1', type: new URLSearchParams(location.search).get('type') }"
-     class="flex justify-center text-center bg-gray-100">
+<div class="flex justify-center text-center bg-gray-100">
     <div style="max-width: 420px; background-color: #F8F7F1">
         <div class="relative">
             <div class="absolute top-10 left-0 w-full flex justify-center">
@@ -303,61 +300,11 @@
                 <span class="underline underline-offset-2">9408</span>
                 <span class="underline underline-offset-2">9409</span>
             </div>
-    
-            <div class="italic mb-1" style="font-family: GmarketSansMedium; font-size: 13px">🚀셔틀버스</div>
-            <div class="italic mb-4" style="font-family: GmarketSansLight;">
-                장소: 여주 흥천체육공원 앞<br>
-                출발시간: 오전 10시<br>
-                (귀가편은 별도 안내드립니다)
-            </div>
-        </div>
-        
-        <div x-show="type == 'c' || type =='b'" class="p-8">
-            <p class="italic underline underline-offset-2 mb-2 text-left" style="font-family: GmarketSansMedium">마음 전하실
-                곳</p>
-            <div class="text-left" style="font-family: GmarketSansLight">
-                <div class="flex items-center" x-show="type == 'b'">
-                    <span style="font-family: GmarketSansMedium;">남강진</span>
-                    &nbsp농협&nbsp<span id="account">221114-52-025427</span>
-                    
-                    <button class="btn rounded-md text-white font-bold ml-2 px-2 tracking-tighter"
-                            data-clipboard-target="#account"
-                            style="background-color: #2FCE42; font-size: 11px"
-                    >
-                        복사하기
-                    </button>
-                </div>
-                <div x-show="type == 'c'">
-                    <div class="mb-1">
-                        <span style="font-family: GmarketSansMedium;">박준한</span>
-                        &nbsp국민&nbsp<span id="account1">61290104060112</span>
-                        
-                        <button class="btn rounded-md text-white font-bold ml-2 px-2 tracking-tighter"
-                                data-clipboard-target="#account1"
-                                style="background-color: #2FCE42; font-size: 11px"
-                        >
-                            복사하기
-                        </button>
-                    </div>
-                    <div>
-                        <span style="font-family: GmarketSansMedium;">김유순</span>
-                        &nbsp농협&nbsp<span id="account2">70204556018401</span>
-                        
-                        <button class="btn rounded-md text-white font-bold ml-2 px-2 tracking-tighter"
-                                data-clipboard-target="#account2"
-                                style="background-color: #2FCE42; font-size: 11px"
-                        >
-                            복사하기
-                        </button>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
 
 <script>
-    $('meta[property=og\\:description]').attr('content', 'test');
     document.addEventListener('DOMContentLoaded', function () {
     
         var swiper = new Swiper('.mySwiper', {
