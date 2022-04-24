@@ -23,6 +23,7 @@
             src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=h8mce8c84o&submodules=geocoder"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
     <style>
         @font-face {
@@ -120,8 +121,7 @@
         }
     </style>
 </head>
-<body>
-<div
+<div x-data="{ open: 'test1', type: new URLSearchParams(location.search).get('type') }"
      class="flex justify-center text-center bg-gray-100">
     <div style="max-width: 420px; background-color: #F8F7F1">
         <div class="relative">
@@ -351,6 +351,9 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+        $('meta[property=og\\:description]').attr('content', 'test');
+        console.log(123);
+    
         var swiper = new Swiper('.mySwiper', {
             spaceBetween: 0,
             grabCursor: true,
